@@ -1,18 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MovieModule } from './movie/movie.module';
+
+import { UserComponent } from './user/user.component';
+//import { MovieComponent } from './movie/movie.component';
+//import { MovieListComponent } from './movie/movie-list.component'
+import { PageNotFoundComponent } from './not-found.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserComponent,
+//    MovieComponent,
+//    MovieListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    MovieModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
