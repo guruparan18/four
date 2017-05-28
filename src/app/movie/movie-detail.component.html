@@ -1,0 +1,15 @@
+<h2>MOVIES</h2>
+<div *ngIf="movie">
+    <h3>"{{ movie.name }}"</h3>
+    <div>
+        <label>Id: </label>{{ movie.id }}</div>
+    <div>
+        <label>Name: </label>
+        <input [(ngModel)]="movie.name" placeholder="name" />
+    </div>
+    <p>
+        <button (click)="gotoMovies()">Back</button>
+    </p>
+</div>
+
+<button routerLink="/movies/new">New Movies</button>
