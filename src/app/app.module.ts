@@ -7,16 +7,12 @@ import { AppComponent } from './app.component';
 import { MovieModule } from './movie/movie.module';
 
 import { UserComponent } from './user/user.component';
-//import { MovieComponent } from './movie/movie.component';
-//import { MovieListComponent } from './movie/movie-list.component'
 import { PageNotFoundComponent } from './not-found.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-//    MovieComponent,
-//    MovieListComponent,
     PageNotFoundComponent
   ],
   imports: [

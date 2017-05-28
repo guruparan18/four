@@ -8,8 +8,6 @@ import { PageNotFoundComponent } from './not-found.component'
 
 const appRoutes: Routes = [
   { path: 'user', component: UserComponent },
-//  { path: 'movie/:id',      component: MovieComponent },
-//  { path: 'movies',  component: MovieListComponent, data: { title: 'Movies' } },
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

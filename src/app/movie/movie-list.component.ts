@@ -36,9 +36,12 @@ export class MovieListComponent implements OnInit {
         return this.service.getMovies();
       });
   }
+
   isSelected(movie: Movie) { return movie.id === this.selectedId; }
+
   onSelect(movie: Movie) {
-    this.router.navigate(['/movie', movie.id]);
+    this.router.navigate(['/movies', movie.id]);
   }
+
 }
 //export class MovieListComponent { }

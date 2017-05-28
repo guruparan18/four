@@ -1,15 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
-//@HostBinding('@routeAnimation') routeAnimation = true;
-//@HostBinding('style.display')   display = 'block';
-//@HostBinding('style.position')  position = 'absolute';
+import { MovieService }  from './movie.service';
+import { Movie } from './movie';
 
 @Component({
-  template: `
-    <h2>MOVIES</h2>
-    <p>All the movies</p>
-
-    <button routerLink="/movies/new">New Movies</button>
-  `
+  templateUrl: './movie-detail.component.html'
 })
-export class MovieDetailComponent { }
+export class MovieDetailComponent implements OnInit {
+  movie: Movie;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private service: MovieService
+  ) {}
+  ngOnInit() {
+    this.route.params
+      // (+) converts string 'id' to a number
+      .switchMap((params: Params) => this.service.getMovie(+params['id']))
+      .subscribe((movie: Movie) => this.movie = movie);
+  }
+  gotoMovies() {
+    let movieId = this.movie ? this.movie.id : null;
+    // Pass along the hero id if available
+    // so that the HeroList component can select that hero.
+    // Include a junk 'foo' property for fun.
+    this.router.navigate(['/movies', { id: movieId, foo: 'foo' }]);
+  }
+}
