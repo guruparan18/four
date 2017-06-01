@@ -10,15 +10,15 @@ import { MovieService }  from './movie.service';
 @Component({
 template: `
   <h2>MOVIES</h2>
-  <ul class="items">
-    <li *ngFor="let movie of movies | async"
+  <ul class="mdc-list">
+    <li class="mdc-list-item" *ngFor="let movie of movies | async"
       [class.selected]="isSelected(movie)"
       (click)="onSelect(movie)">
       <span class="badge">{{ movie.id }}</span> {{ movie.name }}
     </li>
   </ul>
 
-  <button routerLink="/movies/new">New Movies</button>
+  <button routerLink="/movies/new" class="mdc-button mdc-button--raised">New Movies</button>
   `
 })
 export class MovieListComponent implements OnInit {

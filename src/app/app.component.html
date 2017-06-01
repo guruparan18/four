@@ -1,5 +1,27 @@
+<div class="mdc-toolbar">
+    <div class="mdc-toolbar__row">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+            <a href="#" class="material-icons">menu</a>
+            <span class="mdc-toolbar__title">Four</span>
+        </section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-left mdc-toolbar__section--shrink-to-fit">
+            <a routerLink="/movies" routerLinkActive="active">Movies</a>
+        </section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-left mdc-toolbar__section--shrink-to-fit">
+            <a routerLink="/user" routerLinkActive="active">User</a>
+        </section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-end mdc-toolbar__section--shrink-to-fit">
+            <a routerLink="/search" aria-label="Search" alt="Search">Search</a>
+        </section>
+    </div>
+</div>
+<!--
 <nav>
     <a routerLink="/movies" routerLinkActive="active">Movies</a>
     <a routerLink="/user" routerLinkActive="active">User</a>
-</nav>
-<router-outlet></router-outlet>
+</nav> -->
+<div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__cell">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
@@ -8,7 +8,7 @@ import { Movie } from './movie';
 @Component({
   templateUrl: './movie-detail.component.html'
 })
-export class MovieDetailComponent implements OnInit {
+export class MovieDetailComponent implements OnInit {  
   movie: Movie;
   constructor(
     private route: ActivatedRoute,

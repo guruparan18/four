@@ -1,4 +1,23 @@
 <h2>MOVIES</h2>
+
+<div *ngIf="movie" class="my-card-container">
+    <div class="mdc-card">
+        <section class="mdc-card__media demo-card__16-9-media"></section>
+        <section class="mdc-card__primary">
+            <h1 class="mdc-card__title mdc-card__title--large">{{movie.name}}</h1>
+            <h2 class="mdc-card__subtitle">{{movie.id}}</h2>
+        </section>
+        <section class="mdc-card__supporting-text">
+            <label>Name: </label>
+            <input [(ngModel)]="movie.name" placeholder="name" />
+        </section>
+        <section class="mdc-card__actions">
+            <button (click)="gotoMovies()" class="mdc-button mdc-button--raised mdc-card__action">Back</button>
+            <button (click)="editMovies()" class="mdc-button mdc-button--compact mdc-card__action">Edit</button>
+        </section>
+    </div>
+</div>
+<!--
 <div *ngIf="movie">
     <h3>"{{ movie.name }}"</h3>
     <div>
@@ -11,5 +30,5 @@
         <button (click)="gotoMovies()">Back</button>
     </p>
 </div>
-
-<button routerLink="/movies/new">New Movies</button>
+-->
+<button routerLink="/movies/new" class="mdc-button mdc-button--raised">New Movies</button>
