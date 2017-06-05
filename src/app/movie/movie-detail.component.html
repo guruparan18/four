@@ -1,8 +1,8 @@
 <h2>MOVIES</h2>
 
-<div *ngIf="movie" class="my-card-container">
-    <div class="mdc-card">
-        <section class="mdc-card__media demo-card__16-9-media"></section>
+<div *ngIf="movie" class="my-card-container mdc-layout-grid">
+    <div class="mdc-layout-grid__cell mdc-card">
+        <section class="mdc-card__media"><img src="http://via.placeholder.com/250x150"></section>
         <section class="mdc-card__primary">
             <h1 class="mdc-card__title mdc-card__title--large">{{movie.name}}</h1>
             <h2 class="mdc-card__subtitle">{{movie.id}}</h2>
@@ -12,8 +12,8 @@
             <input [(ngModel)]="movie.name" placeholder="name" />
         </section>
         <section class="mdc-card__actions">
-            <button (click)="gotoMovies()" class="mdc-button mdc-button--raised mdc-card__action">Back</button>
-            <button (click)="editMovies()" class="mdc-button mdc-button--compact mdc-card__action">Edit</button>
+            <button (click)="gotoMovies()" class="mdc-button mdc-card__action mdc-button--raised">Back</button>
+            <button (click)="editMovies()" class="mdc-button mdc-card__action">Edit</button>
         </section>
     </div>
 </div>
