@@ -1,21 +1,39 @@
 /*Youcanaddglobalstylestothisfile,andalsoimportotherstylefiles*/
-a{
-    color:white;
-    text-decoration:none;
-    padding-left:5px;
-    padding-right:5px;
+
+a {
+    color: white;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
 }
-nav{
-    background-color:black;
-    padding-top:5px;
-    padding-bottom:5px;
-    padding-left:5px;
+
+nav {
+    background-color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
 }
-body{
-    padding:0px;
-    margin:0px;
+
+body {
+    padding: 0px;
+    margin: 0px;
 }
+
 .my-card-container .mdc-card {
-  height: 350px;
-  width: 350px;
+    height: 350px;
+    width: 350px;
+}
+
+.my-grid {
+    background-color: #DDDDDD;
+    margin-bottom: 32px;
+}
+
+.my-grid-cell {
+    box-sizing: border-box;
+    background-color: #666666;
+    height: 200px;
+    padding: 8px;
+    color: white;
+    font-size: 1.5em;
 }
