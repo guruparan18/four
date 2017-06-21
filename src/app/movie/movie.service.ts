@@ -1,4 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Http, Response }          from '@angular/http';
+ 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 import { Movie } from './movie';
 import { MOVIES } from './mock-movies';
@@ -7,6 +12,11 @@ let moviesPromise = Promise.resolve(MOVIES);
 
 @Injectable()
 export class MovieService {
+
+  private heroesUrl = 'api/movies';  // URL to web API
+ 
+  constructor (private http: Http) {}
+
   getMovies(): Promise<Movie[]> {
     return Promise.resolve(MOVIES);
   }

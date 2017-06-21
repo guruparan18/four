@@ -1,0 +1,70 @@
+<h2>MOVIES</h2>
+
+<!-- 
+    <div class="my-card-container mdc-layout-grid">
+        <div *ngFor="let movie of movies | async" class="mdc-grid-tile mdc-layout-grid__cell mdc-card">
+
+<div class="my-card-container mdc-layout-grid mdc-grid-list mdc-grid-list--tile-gutter-1">
+    <div *ngFor="let movie of movies | async" class="mdc-grid-list__tiles">
+        <section class="mdc-card__media"><img src="http://via.placeholder.com/250x150"></section>
+        <section class="mdc-card__primary">
+            <h1 class="mdc-card__title mdc-card__title--large">{{movie.name}}</h1>
+            <h2 class="mdc-card__subtitle">{{movie.id}}</h2>
+        </section>
+        <section class="mdc-card__supporting-text">
+            <label>Name: </label>
+            <input [(ngModel)]="movie.name" placeholder="name" />
+        </section>
+        <section class="mdc-card__actions">
+            <button (click)="onSelect(movie)" class="mdc-button mdc-card__action mdc-button--raised">More</button>
+            <button (click)="editMovies()" class="mdc-button mdc-card__action">Edit</button>
+        </section>
+    </div>
+</div>
+-->
+<div class="mdc-grid-list">
+    <ul class="mdc-grid-list__tiles">
+        <li *ngFor="let movie of movies | async" class="mdc-grid-tile">
+            <div class="mdc-grid-tile__primary">
+                <img class="mdc-grid-tile__primary-content" src="http://via.placeholder.com/250x150">
+            </div>
+            <span class="mdc-grid-tile__secondary">
+                <!-- 
+                    <i class="mdc-grid-tile__icon material-icons"><button (click)="onSelect(movie)" class="mdc-button mdc-card__action mdc-button--raised">More</button></i>
+                -->
+                <span class="mdc-grid-tile__title">{{movie.name}}</span>
+            </span>
+        </li>
+    </ul>
+</div>
+
+<!--
+<div class="mdc-grid-list overflow-scroll">
+    <ul class="mdc-grid-list__tiles">
+        <li *ngFor="let movie of movies | async" class="mdc-grid-tile">
+            <div class="mdc-grid-tile__primary">
+                <img class="mdc-grid-tile__primary-content" src="http://via.placeholder.com/250x150">
+            </div>
+            <span class="mdc-grid-tile__secondary">
+             -->
+<!-- 
+                    <i class="mdc-grid-tile__icon material-icons"><button (click)="onSelect(movie)" class="mdc-button mdc-card__action mdc-button--raised">More</button></i>
+                -->
+<!--
+                <span class="mdc-grid-tile__title">{{movie.name}}</span>
+            </span>
+        </li>
+    </ul>
+</div>
+-->
+
+<!--  
+<ul class="mdc-list">
+    <li class="mdc-list-item" *ngFor="let movie of movies | async"
+      [class.selected]="isSelected(movie)"
+      (click)="onSelect(movie)">
+      <span class="badge">{{ movie.id }}</span> {{ movie.name }}
+    </li>
+  </ul>
+-->
+<button routerLink="/movies/new" class="mdc-button mdc-button--raised">New Movies</button>

@@ -1,0 +1,92 @@
+.mdc-grid-tile {
+    --mdc-grid-list-tile-width: 300px;
+    width: 300px;
+}
+
+
+/*
+.my-grid-list .mdc-grid-tile {
+    width: 300px;
+}
+*/
+
+@media (max-width: 340px) {
+    .mdc-grid-tile {
+        /* --mdc-grid-list-tile-width: 140px; */
+        width: 140px;
+    }
+    /*
+    .overflow-scroll {
+        width: 1200px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .overflow-scroll>mdc-grid-list__tiles {
+        display: inline-block;
+    }*/
+}
+
+@media (min-width: 720px) {
+    .mdc-grid-list__tiles {
+        width: 720px;
+    }
+}
+
+@media (min-width: 1020px) {
+    .mdc-grid-list__tiles {
+        width: 1020px;
+    }
+}
+
+
+/*
+.parallax-container{
+  position: relative;
+  height: 750px;
+  overflow: hidden;
+}
+
+.parallax-content {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 15em;
+  padding: 1em;
+  margin: auto;
+  width: 300px;
+  text-align: center;
+  background: rgba(0,0,0,0.25);
+  color: white
+}
+*/
+
+
+/*
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    height: 500px
+}
+
+.parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1
+}
+
+.parallax img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+*/
