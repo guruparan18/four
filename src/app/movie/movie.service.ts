@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http, Response }          from '@angular/http';
+import { Headers, Http, Response }          from '@angular/http';
  
-import { Observable } from 'rxjs/Observable';
+//import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 import { Movie } from './movie';
 import { MOVIES } from './mock-movies';
@@ -13,11 +14,34 @@ let moviesPromise = Promise.resolve(MOVIES);
 @Injectable()
 export class MovieService {
 
-  private heroesUrl = 'api/movies';  // URL to web API
+  private moviesUrl = 'http://localhost:3000/movies';  // URL to web API
  
   constructor (private http: Http) {}
 
   getMovies(): Promise<Movie[]> {
+    return this.http
+               .get(this.moviesUrl)
+               .toPromise()
+               .then(this.extractData) //response => response.json().data as Movie[])
+               //.then(response => response.json().data as Movie[])
+               //.map(response => response.json().data as Movie[])
+               .catch(this.handleError);
+
+    //console.error("response.json()");               
+  };
+
+  private extractData(res: Response) {
+    let body = res.json();
+    //console.log(body);
+    return body || { };
+  };
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+ }
+
+  getMoviesOld(): Promise<Movie[]> {
     return Promise.resolve(MOVIES);
   }
 
