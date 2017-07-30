@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpModule }    from '@angular/http';
 //import { UserHomeRoutingModule }      from './user/user-routing.module';
 
 import { AppComponent } from './app.component';
 import { MovieModule } from './movie/movie.module';
 
 import { UserComponent } from './user/user.component';
-import { PageNotFoundComponent } from './not-found.component'
+import { PageNotFoundComponent } from './not-found.component';
+import { MovieService} from './movie/movie.service';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,11 @@ import { PageNotFoundComponent } from './not-found.component'
     BrowserModule,
     FormsModule,
     MovieModule,
+    HttpModule,
 //    UserHomeRoutingModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
