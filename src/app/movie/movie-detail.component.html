@@ -1,28 +1,44 @@
-<h2>MOVIES</h2>
-<div id="parallax">
-    <div class="parallax-content">
-        <h1>rAF + translate3d</h1>
-        <p>Written in native Javascript using a single ticking requestAnimationFrame() method and translate3d to ensure GPU acceleration.</p>
-    </div>
+<div *ngIf="movie">
+    <!-- 
+    <iframe width="100%" height="420" src="https://www.youtube.com/embed/ZzlwxYFWCfg?rel=0" frameborder="0" allowfullscreen></iframe>
+        <img src="{{movie.poster_url}}" style='width:100%;height:350px; overflow:hidden;' border="0" alt="Null">
+    -->
+    <iframe width="100%" height="420" src="https://www.youtube.com/embed/ZzlwxYFWCfg?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    <h2>{{movie.displayName}}</h2>
+    <h3>Actors</h3>
+    <div> {{movie.actors}}</div>
+    <h3>Director</h3>
+    <div>{{movie.director}}</div>
 </div>
-<div *ngIf="movie" class="my-card-container mdc-layout-grid">
-    <div class="mdc-layout-grid__cell mdc-card">
-        <section class="mdc-card__media"><img src="http://via.placeholder.com/250x150"></section>
-        <section class="mdc-card__primary">
-            <h1 class="mdc-card__title mdc-card__title--large">{{movie.name}}</h1>
-            <h2 class="mdc-card__subtitle">{{movie.id}}</h2>
-        </section>
-        <section class="mdc-card__supporting-text">
-            <label>Name: </label>
-            <input [(ngModel)]="movie.name" placeholder="name" />
-        </section>
-        <section class="mdc-card__actions">
-            <button (click)="gotoMovies()" class="mdc-button mdc-card__action mdc-button--raised">Back</button>
-            <button (click)="editMovies()" class="mdc-button mdc-card__action">Edit</button>
-        </section>
-    </div>
-</div>
+<button routerLink="/movies/new" class="mdc-button mdc-button--raised">New Movies</button>
 <!--
+    <div class="jumbotron-image">
+        <h2> {{movie.displayName}}</h2>
+        <div class="container">
+            <img src="{{movie.poster_url}}">
+        </div>
+    </div>
+    -->
+<!--
+    <div class="my-card-container mdc-layout-grid">
+        <div class="mdc-layout-grid__cell mdc-card"> -->
+<!-- <section class="mdc-card__media"><img src="http://via.placeholder.com/250x150"></section> -->
+<!--            <section class="mdc-card__media"><img src="{{movie.poster_url}}"></section>
+            <section class="mdc-card__primary">
+                <h1 class="mdc-card__title mdc-card__title--large">{{movie.displayName}}</h1>
+                <h2 class="mdc-card__subtitle">{{movie.id}}</h2>
+            </section>
+            <section class="mdc-card__supporting-text">
+                <label>Name: </label>
+                <input [(ngModel)]="movie.displayName" placeholder="name" />
+            </section>
+            <section class="mdc-card__actions">
+                <button (click)="gotoMovies()" class="mdc-button mdc-card__action mdc-button--raised">Back</button>
+                <button (click)="editMovies()" class="mdc-button mdc-card__action">Edit</button>
+            </section>
+        </div>
+    </div>
+</div>
 <div *ngIf="movie">
     <h3>"{{ movie.name }}"</h3>
     <div>
@@ -36,4 +52,3 @@
     </p>
 </div>
 -->
-<button routerLink="/movies/new" class="mdc-button mdc-button--raised">New Movies</button>

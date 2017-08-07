@@ -19,8 +19,9 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params
       // (+) converts string 'id' to a number
-      .switchMap((params: Params) => this.service.getMovie(+params['id']))
-      .subscribe((movie: Movie) => this.movie = movie);
+      //.switchMap((params: Params) => this.service.getMovie(+params['id']))
+      .switchMap((params: Params) => this.service.getMovieWithName(params['name']))
+      .subscribe((movie: Movie[]) => this.movie = movie[0]);
   }
   gotoMovies() {
     let movieId = this.movie ? this.movie.id : null;

@@ -1,7 +1,10 @@
 export class Movie {
-//    _id : number;    
+//    _id : number;
     id : number;
     name : string;
     displayName : string;
     displayShortLine: string;
+    actors: string;
+    director: string;
+    poster_url: string;
 }
