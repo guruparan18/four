@@ -1,5 +1,10 @@
 /*Youcanaddglobalstylestothisfile,andalsoimportotherstylefiles*/
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 a {
     color: white;
     text-decoration: none;

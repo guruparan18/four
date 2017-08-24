@@ -17,10 +17,16 @@
     background-color: grey;
     margin: 0;
     height: 100px;
+    margin-top: 18%;
+    overflow: hidden;
 }
 
 .footer--container {
     padding: 5px;
     margin: 5px;
     color: white;
+}
+
+#routerOutlet {
+    padding-left: 0px;
 }

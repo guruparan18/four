@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+//import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import 'rxjs/add/operator/switchMap';
 
 import { MovieService }  from './movie.service';
@@ -11,17 +12,21 @@ import { Movie } from './movie';
 })
 export class MovieDetailComponent implements OnInit {  
   movie: Movie;
+  //public trailerURL :SafeUrl;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: MovieService
+    private movieService: MovieService,
+  //  private sanitizer: DomSanitizer
   ) {}
   ngOnInit() {
     this.route.params
       // (+) converts string 'id' to a number
       //.switchMap((params: Params) => this.service.getMovie(+params['id']))
-      .switchMap((params: Params) => this.service.getMovieWithName(params['name']))
+      .switchMap((params: Params) => this.movieService.getMovieWithName(params['name']))
       .subscribe((movie: Movie[]) => this.movie = movie[0]);
+
+//      this.trailerURL = this.sanitizer.bypassSecurityTrustUrl(this.movie.trailer_url);
   }
   gotoMovies() {
     let movieId = this.movie ? this.movie.id : null;
@@ -34,5 +39,10 @@ export class MovieDetailComponent implements OnInit {
   editMovies(){
     let movieId = this.movie ? this.movie.id : null;
     this.router.navigate(['/movies/edit',  movieId]);
+  }
+  deleteMovie(){
+    let movieName = this.movie ? this.movie.name : null;
+    this.movieService.deleteMovie(movieName);
+    this.router.navigate(['/movies']);
   }
 }

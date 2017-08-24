@@ -31,7 +31,7 @@ export class MovieListComponent implements OnInit {
                        error =>  this.errorMessage = <any>error);
   }
 
-  isSelected(movie: Movie) { return movie.id === this.selectedId; }
+  //isSelected(movie: Movie) { return movie.id === this.selectedId; }
 
   onSelect(movie: Movie) {
     this.router.navigate(['/movies', movie.id]);

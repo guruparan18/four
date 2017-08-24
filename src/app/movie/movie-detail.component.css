@@ -1,0 +1,12 @@
+.media-container {
+    width: 100%;
+}
+
+.content-container {
+    margin-left: 1%;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+}

@@ -6,6 +6,8 @@ import { MovieListComponent }    from './movie-list.component';
 import { MovieDetailComponent }  from './movie-detail.component';
 import { MovieService } from './movie.service';
 import { MovieRoutingModule } from './movie-routing.module';
+import { MovieNewComponent } from './movie-new.component';
+import { MovieEditComponent } from './movie-edit.component';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { MovieRoutingModule } from './movie-routing.module';
   ],
   declarations: [
     MovieListComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MovieNewComponent,
+    MovieEditComponent
   ],
   providers: [ MovieService ]
 })

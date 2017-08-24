@@ -1,0 +1,61 @@
+<div class="container" *ngIf="model">
+    <div [hidden]="submitted">
+        <h1>{{pageAction}}</h1>
+        <form (ngSubmit)="onSubmit()" #newMovieForm="ngForm">
+            <div class="form-group">
+                <label for="name">Movie Name</label>
+                <input type="text" class="form-control col-xs-9  pull-left" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    Name is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="displayShortLine">Display Short Line</label>
+                <input type="text" class="form-control col-xs-9  pull-left" id="displayShortLine" [(ngModel)]="model.displayShortLine" name="displayShortLine">
+            </div>
+
+            <div class="form-group">
+                <label for="actors">Actors</label>
+                <input type="text" class="form-control col-xs-9  pull-left" id="actors" [(ngModel)]="model.actors" name="actors">
+            </div>
+
+            <div class="form-group">
+                <label for="director">Director</label>
+                <input type="text" class="form-control" id="director" [(ngModel)]="model.director" name="director">
+            </div>
+
+            <div class="form-group">
+                <label for="poster_url">Poster URL</label>
+                <input type="text" class="form-control" id="poster_url" [(ngModel)]="model.poster_url" name="poster_url">
+            </div>
+
+            <div class="form-group">
+                <label for="trailer_url">Trailer URL</label>
+                <input type="text" class="form-control" id="trailer_url" [(ngModel)]="model.trailer_url" name="trailer_url">
+            </div>
+
+            <button type="submit" class="mdc-button mdc-button--raised btn-success" [disabled]="!newMovieForm.form.valid">New Movie</button>
+            <button type="button" class="mdc-button btn-default" (click)="newMovie(); newMovieForm.reset()">Clear</button>
+        </form>
+    </div>
+    <!--
+    <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+            <div class="col-xs-3">Name</div>
+            <div class="col-xs-9  pull-left">{{ model.name }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Alter Ego</div>
+            <div class="col-xs-9 pull-left">{{ model.alterEgo }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Power</div>
+            <div class="col-xs-9 pull-left">{{ model.power }}</div>
+        </div>
+        <br>
+        <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+    </div>
+    -->
+</div>
