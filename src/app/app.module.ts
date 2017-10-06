@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MovieRoutingModule } from './movie/movie-routing.module';
 import { HttpModule }    from '@angular/http';
 //import { UserHomeRoutingModule }      from './user/user-routing.module';
 
@@ -25,7 +26,8 @@ import { MovieService} from './movie/movie.service';
     MovieModule,
     HttpModule,
 //    UserHomeRoutingModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MovieRoutingModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]

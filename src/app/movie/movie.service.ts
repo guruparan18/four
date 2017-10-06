@@ -11,7 +11,7 @@ import { Movie } from './movie';
 @Injectable()
 export class MovieService {
 
-  private moviesUrl = 'http://localhost:3000/movies';  // URL to web API
+  private moviesUrl = 'http://2see.in:3000/movies';  // URL to web API
   private headers = new Headers({'Content-Type': 'application/json'});
  
   constructor (private http: Http) {}
@@ -59,6 +59,29 @@ export class MovieService {
           //.then(res => res.json().data as Movie)
           //.then(res => res.json().RETURN_STATUS as string)
           .catch(this.handleError);
+  };
+
+  vetMovie(movieItem: Movie) {
+    movieItem.name = movieItem.name.trim();
+    
+    if (movieItem.displayName === "Display Name") {
+        movieItem.displayName = movieItem.name;
+    }
+
+    movieItem.name = movieItem.name.replace(" ", "");
+    
+    if (movieItem.id === "Name"){
+        movieItem.id = movieItem.name;
+    }
+    
+    return movieItem;
+  };
+
+  defaultMovie(){
+    var movieItem = new Movie("Name", "Sample", "Display Name", "Sample Shortline"
+                            , "Actors 1, Actors 2", "Director", "URL", "Trailer URL", "Tags"); 
+    
+    return movieItem;
   };
 
   private extractData(res: Response) {

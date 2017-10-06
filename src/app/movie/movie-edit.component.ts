@@ -10,49 +10,43 @@ import { Movie } from './movie';
   styleUrls: ['./movie-new.component.css']
 })
 export class MovieEditComponent implements OnInit {  
-  public pageAction = "Edit Movie";
-  public model = new Movie("Name", "Sample", "Display Name", "Sample Shortline"
-  , "Actors 1, Actors 2", "Director", "URL", "Trailer URL", "Tags");
-  movie: Movie;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: MovieService
-  ) {}
+    private movieService: MovieService
+  ) {};
+  
+  public pageAction = "Edit";
+  public model = Object(); //this.movieService.defaultMovie();
+  movie: Movie;
+
   ngOnInit() {
     this.route.params
       // (+) converts string 'id' to a number
       //.switchMap((params: Params) => this.service.getMovie(+params['id']))
-      .switchMap((params: Params) => this.service.getMovieWithName(params['name']))
+      .switchMap((params: Params) => this.movieService.getMovieWithName(params['name']))
       .subscribe((movie: Movie[]) => this.model = movie[0]);
 
       //this.model = this.movie;
       console.log("Loaded Movie");
       console.log(this.model);
       //console.log(this.movie);
-  }
+  };
   onSubmit() { 
-    if (this.model.displayName === "Display Name") {
-      this.model.displayName = this.model.name;
-    }
 
-  //  if (this.model.id === "Name"){
-      this.model.id = this.model.name;
-  //  }
-
-  this.model.id = this.model.id.replace(" ", "");
+  this.model = this.movieService.vetMovie(this.model);
 
   var movieItem = new Movie( this.model.id, this.model.name, this.model.displayName
                              , this.model.displayShortLine, this.model.actors, this.model.director
                              , this.model.poster_url, this.model.trailer_url, this.model.tags);
     
-    this.service.putMovie(movieItem.name, movieItem);
+  this.movieService.putMovie(movieItem.name, movieItem);
                     //.then(movies => this.model = movies );
     
-    setTimeout(this.router.navigate(['/movies', this.model.name]), 2000);
+  setTimeout(this.router.navigate(['/movies', this.model.name]), 2000);
     //console.log("DONE");
     //console.log(movieItem);
-  }
+  };
   /*
   gotoMovies() {
     let movieId = this.movie ? this.movie.id : null;
@@ -67,4 +61,4 @@ export class MovieEditComponent implements OnInit {
     this.router.navigate(['/movies/edit',  movieId]);
   }
   */
-}
+};

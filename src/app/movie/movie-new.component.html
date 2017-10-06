@@ -1,6 +1,6 @@
 <div class="container" *ngIf="model">
     <div [hidden]="submitted">
-        <h1>{{pageAction}}</h1>
+        <h1>{{pageAction}} Movie</h1>
         <form (ngSubmit)="onSubmit()" #newMovieForm="ngForm">
             <div class="form-group">
                 <label for="name">Movie Name</label>
@@ -35,7 +35,7 @@
                 <input type="text" class="form-control" id="trailer_url" [(ngModel)]="model.trailer_url" name="trailer_url">
             </div>
 
-            <button type="submit" class="mdc-button mdc-button--raised btn-success" [disabled]="!newMovieForm.form.valid">New Movie</button>
+            <button type="submit" class="mdc-button mdc-button--raised btn-success" [disabled]="!newMovieForm.form.valid">{{pageAction}} {{model.name}}</button>
             <button type="button" class="mdc-button btn-default" (click)="newMovie(); newMovieForm.reset()">Clear</button>
         </form>
     </div>

@@ -6,9 +6,9 @@
         https://www.youtube.com/embed/ZzlwxYFWCfg?rel=0&amp;controls=0&amp;showinfo=0
     -->
     <div class="media-container">
-        <!-- 
-            <iframe *ngIf="movie.trailer_url" class="e2e-iframe-trusted-src e2e-trusted-url" width="100%" height="420" src="{{trailerURL}}" frameborder="0" allowfullscreen></iframe>
-        -->
+
+        <iframe *ngIf="movie.trailer_url" class="e2e-iframe-trusted-src" width="100%" height="420" [src]="trailerURL" frameborder="0" allowfullscreen></iframe>
+
         <div *ngIf="!movie.trailer_url" class="container">
             <img src="{{movie.poster_url}}">
         </div>
